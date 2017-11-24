@@ -1,0 +1,43 @@
+{
+  "name": "v-img-fallback",
+  "version": "0.0.1",
+  "description": "Vue imge placeholder directive for broken images.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:runscript": "node tester.js",
+    "test:openbrowser": "google-chrome tester.html",
+    "start:dev": "webpack --watch",
+    "prebuild:webpack": "rm -rf dist",
+    "prebuild:rollup": "rm -rf build",
+    "build:webpack": "webpack --progress --hide-modules",
+    "build:rollup": "rollup -c",
+    "build:all": "npm run build:webpack && npm run build:rollup"
+  },
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-es2015": "^6.24.1",
+    "css-loader": "^0.28.4",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.5.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jofftiquez/v-img-fallback.git"
+  },
+  "keywords": [
+    "es5",
+    "es6",
+    "babel",
+    "webpack",
+    "rollup"
+  ],
+  "author": "Jofferson Ramirez Tiquez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jofftiquez/v-img-fallback/issues"
+  },
+  "homepage": "https://github.com/jofftiquez/v-img-fallback#readme"
+}
