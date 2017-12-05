@@ -34,8 +34,8 @@ Path or image url. This value will be used in both loading and error state.
 
 ```
 {
-	loading: 'path/to/loading/image',
-	error: 'path/to/error/image'
+  loading: 'path/to/loading/image',
+  error: 'path/to/error/image'
 }
 ```
 
@@ -50,20 +50,20 @@ Path or image url. This value will be used in both loading and error state.
 ### Sample - pass an object
 ```vue
 <template>
-	<img src="foo.png" v-img-fallback="imgFallback">
+  <img src="foo.png" v-img-fallback="imgFallback">
 </template>
 
 <script>
-	export default {
-		data() {
-			return {
-				imgFallback: {
-					loading: 'path/to/loading/image',
-					error: 'path/to/error/image'
-				}
-			}
-		}
-	}
+  export default {
+    data() {
+      return {
+        imgFallback: {
+          loading: 'path/to/loading/image',
+          error: 'path/to/error/image'
+        }
+      }
+    }
+  }
 </script>
 
 ```
