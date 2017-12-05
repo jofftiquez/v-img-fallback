@@ -22,12 +22,54 @@ Vue.use(VImgFallback);
 
 `https://unpkg.com/v-img-fallback/dist/v-img-fallback.js`
 
+### API
 
-### Sample 
+This directive can receive `string` or `object` value.
+
+**string**
+
+Path or image url. This value will be used in both loading and error state.
+
+**object**
+
+```
+{
+	loading: 'path/to/loading/image',
+	error: 'path/to/error/image'
+}
+```
+
+
+### Sample - pass a string
 
 ```html
 <img src="foo.png" v-img-fallback="path/to/placeholder">
 
 ```
+
+### Sample - pass an object
+```vue
+<template>
+	<img src="foo.png" v-img-fallback="imgFallback">
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				imgFallback: {
+					loading: 'path/to/loading/image',
+					error: 'path/to/error/image'
+				}
+			}
+		}
+	}
+</script>
+
+```
+
+**Tips**
+
+`loading` value can be a `.gif` **Gee**. **Ahy**. **Ef**. *(I will die with dignity LOL)*.
 
 **Made with :heart: by Jofferson Ramirez Tiquez**
