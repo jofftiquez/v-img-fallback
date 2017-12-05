@@ -75,7 +75,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 exports.default = function (Vue) {
+
   Vue.directive('img-fallback', {
     inserted: function inserted(el) {},
     bind: function bind(el, binding, vnode) {
@@ -87,14 +90,38 @@ exports.default = function (Vue) {
           modifiers = binding.modifiers;
 
 
+      var defaultLoading = 'http://de.4-traders.com/images/loading_100.gif';
+      var defaultError = 'https://pbs.twimg.com/media/BXhh-sfIAAArh4S.jpg';
+      var loading = defaultLoading;
+      var error = defaultError;
+      var original = el.src;
+
       var img = new Image();
 
-      img.src = el.src;
+      if (!value) {
+        console.warn('Vue Img Falback Warning: Directive value is ' + (typeof value === 'undefined' ? 'undefined' : _typeof(value)) + '. Now using default values.');
+      }
 
-      img.onload = function () {};
+      if (typeof value === 'string') {
+        loading = value;
+        error = value;
+      }
+
+      if (value instanceof Object) {
+        loading = value.loading || defaultLoading;
+        error = value.error || defaultError;
+      }
+
+      img.src = original;
+
+      el.src = loading;
+
+      img.onload = function () {
+        el.src = original;
+      };
 
       img.onerror = function () {
-        el.src = value || 'https://pbs.twimg.com/media/BXhh-sfIAAArh4S.jpg';
+        el.src = error;
       };
     }
   });
