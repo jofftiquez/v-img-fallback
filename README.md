@@ -14,7 +14,10 @@ Vue imge placeholder directive for broken images.
 import Vue from 'vue';
 import VImgFallback from 'v-img-fallback';
 
-Vue.use(VImgFallback);
+Vue.use(VImgFallback, {
+  loading: 'path/to/loading/image',
+  error: 'path/to/error/image'
+});
 
 ```
 
@@ -38,7 +41,6 @@ Path or image url. This value will be used in both loading and error state.
   error: 'path/to/error/image'
 }
 ```
-
 
 ### Sample - pass a string
 
@@ -67,6 +69,10 @@ Path or image url. This value will be used in both loading and error state.
 </script>
 
 ```
+
+**Update**
+
+*January 25, 2018* - Added options object to `Vue.use(VueImgFallback, options)`. Options should have `loading` and `error` properties. These values will always be overwritten by the value inside `v-img-fallback` directive. 
 
 **Tips**
 
