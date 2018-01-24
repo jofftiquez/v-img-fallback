@@ -77,7 +77,9 @@ Object.defineProperty(exports, "__esModule", {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-exports.default = function (Vue) {
+exports.default = function (Vue, _ref) {
+  var loading = _ref.loading,
+      error = _ref.error;
 
   Vue.directive('img-fallback', {
     inserted: function inserted(el) {},
@@ -90,26 +92,26 @@ exports.default = function (Vue) {
           modifiers = binding.modifiers;
 
 
-      var defaultLoading = 'http://de.4-traders.com/images/loading_100.gif';
-      var defaultError = 'https://pbs.twimg.com/media/BXhh-sfIAAArh4S.jpg';
+      var defaultLoading = loading || 'http://de.4-traders.com/images/loading_100.gif';
+      var defaultError = error || 'https://pbs.twimg.com/media/BXhh-sfIAAArh4S.jpg';
       var loading = defaultLoading;
-      var error = defaultError;
+      var err = defaultError;
       var original = el.src;
 
       var img = new Image();
 
       if (!value) {
-        console.warn('Vue Img Falback Warning: Directive value is ' + (typeof value === 'undefined' ? 'undefined' : _typeof(value)) + '. Now using default values.');
+        console.warn('Vue Img Fallback Warning: Directive value is ' + (typeof value === 'undefined' ? 'undefined' : _typeof(value)) + '. Now using default values.');
       }
 
       if (typeof value === 'string') {
         loading = value;
-        error = value;
+        err = value;
       }
 
       if (value instanceof Object) {
         loading = value.loading || defaultLoading;
-        error = value.error || defaultError;
+        err = value.error || defaultError;
       }
 
       img.src = original;
@@ -121,7 +123,7 @@ exports.default = function (Vue) {
       };
 
       img.onerror = function () {
-        el.src = error;
+        el.src = err;
       };
     }
   });
