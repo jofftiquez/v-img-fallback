@@ -1,5 +1,4 @@
-export default (Vue) => {
-
+export default (Vue, {loading, error}) => {
   Vue.directive('img-fallback', {
     inserted: (el) => {},
     bind: (el, binding, vnode) => {
@@ -7,26 +6,26 @@ export default (Vue) => {
         name, value, oldValue, expression, arg, modifiers
       } = binding;
 
-      const defaultLoading = 'http://de.4-traders.com/images/loading_100.gif';
-      const defaultError = 'https://pbs.twimg.com/media/BXhh-sfIAAArh4S.jpg';
+      const defaultLoading = loading || 'http://de.4-traders.com/images/loading_100.gif';
+      const defaultError = error || 'https://pbs.twimg.com/media/BXhh-sfIAAArh4S.jpg';
       let loading = defaultLoading;
-      let error = defaultError;
+      let err = defaultError;
       let original = el.src;
 
       let img = new Image();
 
       if(!value) {
-        console.warn(`Vue Img Falback Warning: Directive value is ${ typeof value }. Now using default values.`)
+        console.warn(`Vue Img Fallback Warning: Directive value is ${ typeof value }. Now using default values.`);
       }
 
       if(typeof value === 'string') {
         loading = value;
-        error = value;
+        err = value;
       }
 
       if(value instanceof Object) {
         loading = value.loading || defaultLoading;
-        error = value.error || defaultError;
+        err = value.error || defaultError;
       }
       
       img.src = original;
@@ -38,7 +37,7 @@ export default (Vue) => {
       };
 
       img.onerror = () => {
-        el.src = error;
+        el.src = err;
       };
     }
   });
