@@ -1,3 +1,9 @@
-import VueImgFallback from './dist';
+import ImgFallback from './directive';
 
-export default VueImgFallback;
+export default Vue => {
+  Vue.directive('img-fallback', ImgFallback);
+};
+
+export {
+  ImgFallback
+};
