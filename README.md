@@ -10,20 +10,39 @@ Vue imge placeholder directive for broken images.
 
 `yarn add v-img-fallback`
 
-```javascript
+Install globally
+```vue
 import Vue from 'vue';
-import VImgFallback from 'v-img-fallback';
+import VueImgFallback from 'v-img-fallback';
 
-Vue.use(VImgFallback, {
+Vue.use(VueImgFallback, {
   loading: 'path/to/loading/image',
   error: 'path/to/error/image'
 });
-
 ```
 
-**CDN**
+Install locally
+```vue
+import { ImgFallback } from 'v-img-fallback';
 
-`https://unpkg.com/v-img-fallback/dist/v-img-fallback.js`
+<template>
+  <img src="foo.png" v-img-fallback="imgFallback">
+</template>
+
+<script>
+export default {
+  components: {
+    ImgFallback
+  },
+  data: () => {
+    imgFallback: {
+      loading: 'path/to/loading/image',
+      error: 'path/to/error/image'
+    }
+  }
+};
+</script>
+```
 
 ### API
 
@@ -44,9 +63,10 @@ Path or image url. This value will be used in both loading and error state.
 
 ### Sample - pass a string
 
-```html
-<img src="foo.png" v-img-fallback="path/to/placeholder">
-
+```vue
+<template>
+  <img src="foo.png" v-img-fallback="path/to/placeholder">
+</template>
 ```
 
 ### Sample - pass an object
@@ -57,17 +77,14 @@ Path or image url. This value will be used in both loading and error state.
 
 <script>
   export default {
-    data() {
-      return {
-        imgFallback: {
-          loading: 'path/to/loading/image',
-          error: 'path/to/error/image'
-        }
+    data: () => {
+      imgFallback: {
+        loading: 'path/to/loading/image',
+        error: 'path/to/error/image'
       }
     }
   }
 </script>
-
 ```
 
 **Update**
