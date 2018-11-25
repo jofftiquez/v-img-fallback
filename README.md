@@ -31,7 +31,7 @@ import { ImgFallback } from 'v-img-fallback';
 
 <script>
 export default {
-  components: {
+  directives: {
     ImgFallback
   },
   data: () => {
