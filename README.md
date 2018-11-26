@@ -2,15 +2,28 @@
 
 Vue imge placeholder directive for broken images.
 
-### Usage
+## Usage
 
-**NPM or Yarn**
+### Install with NPM or Yarn
 
 `npm install v-img-fallback --save`
 
 `yarn add v-img-fallback`
 
-Install globally
+### Transpile for `target: es5`
+This module is distributed as an esm module.
+
+If you need backwards compatibility, you will need to transpile this module:
+
+```js
+// in your vue.config.js for vue-cli-3
+module.exports = {
+  /* ... other config ... */
+  transpileDependencies: ['v-img-fallback']
+}
+```
+
+### Install globally
 ```vue
 import Vue from 'vue';
 import VueImgFallback from 'v-img-fallback';
@@ -21,7 +34,7 @@ Vue.use(VueImgFallback, {
 });
 ```
 
-Install locally
+### Install locally
 ```vue
 import { ImgFallback } from 'v-img-fallback';
 
@@ -44,7 +57,7 @@ export default {
 </script>
 ```
 
-### API
+## API
 
 This directive can receive `string` or `object` value.
 
@@ -89,7 +102,7 @@ Path or image url. This value will be used in both loading and error state.
 
 **Update**
 
-*January 25, 2018* - Added options object to `Vue.use(VueImgFallback, options)`. Options should have `loading` and `error` properties. These values will always be overwritten by the value inside `v-img-fallback` directive. 
+*January 25, 2018* - Added options object to `Vue.use(VueImgFallback, options)`. Options should have `loading` and `error` properties. These values will always be overwritten by the value inside `v-img-fallback` directive.
 
 **Tips**
 
