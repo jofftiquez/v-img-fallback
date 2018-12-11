@@ -24,7 +24,7 @@ module.exports = {
 ```
 
 ### Install globally
-```vue
+```js
 import Vue from 'vue';
 import VueImgFallback from 'v-img-fallback';
 
@@ -36,13 +36,13 @@ Vue.use(VueImgFallback, {
 
 ### Install locally
 ```vue
-import { ImgFallback } from 'v-img-fallback';
-
 <template>
   <img src="foo.png" v-img-fallback="imgFallback">
 </template>
 
 <script>
+import { ImgFallback } from 'v-img-fallback';
+
 export default {
   directives: {
     ImgFallback
@@ -67,7 +67,7 @@ Path or image url. This value will be used in both loading and error state.
 
 **object**
 
-```
+```js
 {
   loading: 'path/to/loading/image',
   error: 'path/to/error/image'
