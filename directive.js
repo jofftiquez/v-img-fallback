@@ -6,7 +6,7 @@ export default {
         const img = new Image();
 
         let loading = defaultLoading;
-        let err = defaultError;
+        let error = defaultError;
         let original = el.src;
 
         if (!value) {
@@ -15,12 +15,12 @@ export default {
 
         if (typeof value === 'string') {
             loading = value;
-            err = value;
+            error = value;
         }
 
         if (value instanceof Object) {
             loading = value.loading || defaultLoading;
-            err = value.error || defaultError;
+            error = value.error || defaultError;
         }
 
         img.src = original;
@@ -32,7 +32,7 @@ export default {
         };
 
         img.onerror = () => {
-            el.src = err;
+            el.src = error;
         };
     }
 }
