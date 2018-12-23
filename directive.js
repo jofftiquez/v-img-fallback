@@ -1,12 +1,12 @@
 export default {
     bind(el, binding) {
         const { value } = binding;
-        const defaultLoading = loading || 'http://de.4-traders.com/images/loading_100.gif';
-        const defaultError = error || 'https://pbs.twimg.com/media/BXhh-sfIAAArh4S.jpg';
+        const defaultLoading = 'http://de.4-traders.com/images/loading_100.gif';
+        const defaultError = 'https://pbs.twimg.com/media/BXhh-sfIAAArh4S.jpg';
         const img = new Image();
 
         let loading = defaultLoading;
-        let err = defaultError;
+        let error = defaultError;
         let original = el.src;
 
         if (!value) {
@@ -15,12 +15,12 @@ export default {
 
         if (typeof value === 'string') {
             loading = value;
-            err = value;
+            error = value;
         }
 
         if (value instanceof Object) {
             loading = value.loading || defaultLoading;
-            err = value.error || defaultError;
+            error = value.error || defaultError;
         }
 
         img.src = original;
@@ -32,7 +32,7 @@ export default {
         };
 
         img.onerror = () => {
-            el.src = err;
+            el.src = error;
         };
     }
 }
