@@ -2,6 +2,8 @@
 
 Vue imge placeholder directive for broken images.
 
+If you like this project, please give it a star, and consider following the author. :)
+
 ## Usage
 
 ### Install with NPM or Yarn
