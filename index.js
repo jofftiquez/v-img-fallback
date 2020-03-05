@@ -4,6 +4,4 @@ export default Vue => {
   Vue.directive('img-fallback', ImgFallback);
 };
 
-export {
-  ImgFallback
-};
+export { ImgFallback };
