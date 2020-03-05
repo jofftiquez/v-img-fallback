@@ -1,6 +1,6 @@
 {
   "name": "v-img-fallback",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Vue imge placeholder directive for broken images.",
   "main": "main.js",
   "module": "index.js",
