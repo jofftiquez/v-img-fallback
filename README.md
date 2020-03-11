@@ -1,4 +1,6 @@
-# v-img-fallback
+# Vue Image Fallback
+
+> v-img-fallback
 
 Vue imge placeholder directive for broken images.
 
