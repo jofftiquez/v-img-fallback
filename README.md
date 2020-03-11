@@ -2,7 +2,7 @@
 
 > v-img-fallback
 
-Vue imge placeholder directive for broken images.
+Vue image placeholder directive for broken images.
 
 If you like this project, please give it a star, and consider following the author. :)
 
